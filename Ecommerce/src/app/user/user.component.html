@@ -1,0 +1,47 @@
+<div class="dropdown">
+  <button
+    class="btn btn-success dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton1"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    *ngIf="userName == undefined"
+  >
+    Login / Signup
+  </button>
+  <button
+    class="btn btn-danger dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton1"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    *ngIf="userName != undefined"
+    #UN
+  >
+    {{ userName }}
+  </button>
+  <ul
+    class="dropdown-menu"
+    aria-labelledby="dropdownMenuButton1"
+    *ngIf="userName != undefined"
+  >
+    <li>
+      <a class="dropdown-item" href="#">{{ email }}</a>
+    </li>
+    <li>
+      <a class="dropdown-item" [routerLink]="['/']" (click)="logout()"
+        >Logout</a
+      >
+    </li>
+  </ul>
+  <ul
+    class="dropdown-menu"
+    aria-labelledby="dropdownMenuButton1"
+    *ngIf="userName == undefined"
+  >
+    <li><a class="dropdown-item" [routerLink]="['/auth']">Login</a></li>
+    <li>
+      <a class="dropdown-item" [routerLink]="['/auth/signup']">SignUp</a>
+    </li>
+  </ul>
+</div>

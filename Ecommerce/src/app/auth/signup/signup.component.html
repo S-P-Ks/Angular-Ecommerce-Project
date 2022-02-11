@@ -1,0 +1,60 @@
+<div class="row mt-5">
+  <div class="mx-auto col-sm-6">
+    <form class="card card-body" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+      <div class="mb-3">
+        <label for="exampleInputEmasil1" class="form-label">Username</label>
+        <input
+          type="username"
+          class="form-control border border-primary"
+          id="username"
+          aria-describedby="emailHelp"
+          formControlName="username"
+          [class.border-danger]="
+            signUpForm.get('username')?.touched &&
+            signUpForm.get('username')?.errors
+          "
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control border border-primary"
+          id="email"
+          aria-describedby="emailHelp"
+          formControlName="email"
+          [class.border-danger]="this.signUpForm?.get('email')?.touched &&
+          (this.signUpForm?.get('email')?.errors?.['required'] ||
+            this.signUpForm?.get('email')?.errors?.['pattern'] ||
+            this.signUpForm?.get('email')?.errors?.['email'])"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control border border-primary"
+          id="exampleInputPassword1"
+          formControlName="password"
+          [class.border-danger]="signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['required']"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Confirm Password</label
+        >
+        <input
+          type="password"
+          class="form-control border border-primary"
+          id="confpassword"
+          formControlName="cpassword"
+          [class.border-danger]="signUpForm.get('cpassword')?.touched && signUpForm.get('cpassword')?.errors?.['required']"
+        />
+      </div>
+      <div class="mb-4">
+        Already a user ? <a [routerLink]="['/auth/login']">login</a>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row mt-5">
+  <div class="mx-auto col-sm-6">
+    <div
+      *ngIf="error"
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+    >
+      {{ error }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <form class="card card-body" (ngSubmit)="login()" [formGroup]="loginForm">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="email"
+          [class.border-danger]="
+            loginForm.get('email')?.touched && loginForm.get('email')?.errors
+          "
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          formControlName="password"
+          [class.border-danger]="
+            loginForm.get('password')?.touched &&
+            loginForm.get('password')?.errors
+          "
+        />
+      </div>
+      <div class="mb-4">
+        Create One <a [routerLink]="['/auth/signup']">SignUp</a>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!submitButton">
+        Login
+      </button>
+    </form>
+  </div>
+</div>
