@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AuthLogGuard } from './auth-log.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { UserComponent } from './components/user/user.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -14,6 +15,15 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./products/products.module').then((m) => m.ProductsModule),
   },
 ];
 

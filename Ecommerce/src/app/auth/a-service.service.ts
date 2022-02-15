@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, mapTo, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { user } from '../state/app.state';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class AServiceService {
     return this.http.post<any>(`${this.url}/register`, post);
   }
 
-  loginUser(post: any) {
+  loginUser(post: any): Observable<any> {
     console.log(post);
     return this.http.post<any>(`${this.url}/login`, post);
   }

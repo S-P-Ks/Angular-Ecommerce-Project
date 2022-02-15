@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api", require("./routes/index"));
+app.use("/products", require("./routes/products"));
 
 app.get("/", (req, res) => {
   res.send("he");
@@ -20,6 +21,6 @@ mongoose
     useNewUrlParser: true,
   })
   .then(() => {
-    app.listen(3000, () => console.log(`Server started on 3000`));
+    app.listen(5000, () => console.log(`Server started on 5000`));
   })
   .catch((error) => console.log(error));

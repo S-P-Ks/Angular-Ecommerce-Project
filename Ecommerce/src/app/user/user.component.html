@@ -26,7 +26,7 @@
     *ngIf="userName != undefined"
   >
     <li>
-      <a class="dropdown-item" href="#">{{ email }}</a>
+      <a class="dropdown-item" [routerLink]="['/user']">{{ email }}</a>
     </li>
     <li>
       <a class="dropdown-item" [routerLink]="['/']" (click)="logout()"

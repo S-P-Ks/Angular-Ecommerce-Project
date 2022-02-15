@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { LoadUser } from 'src/app/state/app.action';
-import { user } from 'src/app/state/app.state';
+import { User } from 'src/app/models/user';
+import { LoadUser, LoginStart } from 'src/app/state/app.action';
+import { SET_LOADING_SPINNER } from 'src/store/Shared/shared.action';
+
 import { UserReducer } from '../../state/app.reducer';
 import { AServiceService } from '../a-service.service';
 
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
   submitButton = false;
   error?: string;
   constructor(
-    private store: Store<{ user: user }>,
+    private store: Store<{ user: User }>,
     private loginService: AServiceService,
     private router: Router
   ) {}
@@ -37,15 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService.loginUser(this.loginForm.value).subscribe(
-      (d) => (
-        localStorage.setItem('token', d.token),
-        console.log(d.u),
-        this.store.dispatch(LoadUser(d.u)),
-        this.router.navigate(['/']).then(() => window.location.reload())
-      ),
-      (err) => ((this.error = err.error), console.log(this.error)),
-      () => console.log('Login Completed')
-    );
+    this.store.dispatch(SET_LOADING_SPINNER({ status: true }));
+    this.store.dispatch(LoginStart(this.loginForm.value));
   }
 }

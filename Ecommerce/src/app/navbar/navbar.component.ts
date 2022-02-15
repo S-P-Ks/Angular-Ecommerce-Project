@@ -8,7 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { LoginUserService } from '../login-user.service';
-import { user } from '../state/app.state';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-navbar',
@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private loginService: LoginUserService,
     private router: Router,
-    private store: Store<{ user: user }>
+    private store: Store<{ user: User }>
   ) {}
 
   loggedIn!: boolean;

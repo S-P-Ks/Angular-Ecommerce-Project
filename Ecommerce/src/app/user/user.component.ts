@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { LoginUserService } from '../login-user.service';
-import { user } from '../state/app.state';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +11,7 @@ import { user } from '../state/app.state';
 })
 export class UserComponent implements OnInit {
   constructor(
-    private store: Store<{ user: user }>,
+    private store: Store<{ user: User }>,
     private loginService: LoginUserService,
     private router: Router
   ) {}

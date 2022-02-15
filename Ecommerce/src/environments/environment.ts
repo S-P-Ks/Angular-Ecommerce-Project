@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   ECOMM: '0014f62867mshe8b05512389fe5ep153595jsnc42bb0d88635',
   API_HOST: 'asos2.p.rapidapi.com',
-  SignUP: 'http://localhost:3000/api/',
+  SignUP: 'http://localhost:5000/api/',
 };
 
 /*

@@ -16,6 +16,8 @@ Router.post("/", (req, res) => {
 
 Router.post("/register", async (req, res) => {
   const body = req.body;
+  console.log(body);
+  console.log("=>", User);
   const password = await bcrypt.hash(body.password, 10);
   body.password = password;
   const u = new User(body);

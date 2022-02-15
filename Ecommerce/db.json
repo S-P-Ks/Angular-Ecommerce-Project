@@ -1,0 +1,69 @@
+{
+  "Headphones": [
+    {
+      "id": 1,
+      "title": "boat",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 2,
+      "title": "boat-1",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 3,
+      "title": "boat-2",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 4,
+      "title": "boat-3",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 5,
+      "title": "boat-4",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 6,
+      "title": "boat-5",
+      "author": "Aman Gupta"
+    }
+  ],
+  "Smartphones": [
+    {
+      "id": 1,
+      "title": "MI",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 2,
+      "title": "Nokia",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 3,
+      "title": "Samsung",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 4,
+      "title": "One Plus",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 5,
+      "title": "Iphone",
+      "author": "Aman Gupta"
+    },
+    {
+      "id": 6,
+      "title": "Lenovo",
+      "author": "Aman Gupta"
+    }
+  ],
+  "laptops": {
+    "name": "typicode"
+  }
+}

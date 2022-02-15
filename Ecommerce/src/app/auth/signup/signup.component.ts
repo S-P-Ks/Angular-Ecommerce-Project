@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { LoadUser } from 'src/app/state/app.action';
-import { user } from 'src/app/state/app.state';
+import { User } from 'src/app/models/user';
+import { LoadUser, SignUpStart } from 'src/app/state/app.action';
+import { SET_LOADING_SPINNER } from 'src/store/Shared/shared.action';
 import { AServiceService } from '../a-service.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private AService: AServiceService,
     private router: Router,
-    private store: Store<{ user: user }>
+    private store: Store<{ user: User }>
   ) {}
 
   ngOnInit(): void {
@@ -36,19 +37,7 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() {
-    console.log(this.signUpForm.value);
-
-    if (this.signUpForm.value.password == this.signUpForm.value.cpassword) {
-      this.AService.registerUser(this.signUpForm.value).subscribe(
-        (data) => (
-          console.log(data),
-          localStorage.setItem('token', data.token),
-          this.store.dispatch(LoadUser(data.user)),
-          this.router.navigate(['/']).then(() => window.location.reload())
-        ),
-        (err) => console.log(err),
-        () => console.log('Completing Registerting the user')
-      );
-    }
+    this.store.dispatch(SET_LOADING_SPINNER({ status: true }));
+    this.store.dispatch(SignUpStart(this.signUpForm.value));
   }
 }
