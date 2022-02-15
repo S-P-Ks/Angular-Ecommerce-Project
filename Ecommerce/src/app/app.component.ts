@@ -25,6 +25,6 @@ export class AppComponent implements OnInit {
     this.u = ls.get('user');
     console.log(this.u?.email);
     this.store.dispatch(LoadUser({ name: this.u?.name, email: this.u?.email }));
-    this.store.dispatch(LoginTest());
+    // this.store.dispatch(LoginTest());
   }
 }

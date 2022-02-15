@@ -6,8 +6,13 @@ import { HeadphonesComponent } from './main/headphones/headphones.component';
 import { SmartphonesComponent } from './main/smartphones/smartphones.component';
 import { LaptopsComponent } from './main/laptops/laptops.component';
 import { CommonModule } from '@angular/common';
-import { LoggedGuard } from '../auth/logged.guard';
 import { AuthLogGuard } from '../auth-log.guard';
+import { StoreModule } from '@ngrx/store';
+import { ProductReducer } from './state/products.reducer';
+import { FormsModule } from '@angular/forms';
+import { Products_State_Name } from './state/products.selector';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffect } from './state/products.effects';
 
 const routes: Routes = [
   {
@@ -39,7 +44,13 @@ const routes: Routes = [
     SmartphonesComponent,
     LaptopsComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    StoreModule.forFeature(Products_State_Name, ProductReducer),
+    FormsModule,
+    EffectsModule.forFeature([ProductEffect]),
+  ],
   exports: [],
   providers: [],
   entryComponents: [],

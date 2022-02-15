@@ -3,67 +3,132 @@
     {
       "id": 1,
       "title": "boat",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 2,
       "title": "boat-1",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 3,
       "title": "boat-2",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 4,
       "title": "boat-3",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 5,
       "title": "boat-4",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 6,
       "title": "boat-5",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     }
   ],
   "Smartphones": [
     {
       "id": 1,
       "title": "MI",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 2,
       "title": "Nokia",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 3,
       "title": "Samsung",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 4,
       "title": "One Plus",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 5,
       "title": "Iphone",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     },
     {
       "id": 6,
       "title": "Lenovo",
-      "author": "Aman Gupta"
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
     }
   ],
-  "laptops": {
-    "name": "typicode"
-  }
+  "laptops": [
+    {
+      "id": 1,
+      "title": "Dell",
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
+    },
+    {
+      "id": 2,
+      "title": "Lenovo",
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
+    },
+    {
+      "id": 3,
+      "title": "HP",
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
+    },
+    {
+      "id": 4,
+      "title": "ASUS",
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
+    },
+    {
+      "id": 5,
+      "title": "ACER",
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
+    },
+    {
+      "id": 6,
+      "title": "Chrome Book",
+      "author": "Aman Gupta",
+      "price": 700,
+      "discount": "5%"
+    }
+  ]
 }

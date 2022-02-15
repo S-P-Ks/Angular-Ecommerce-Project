@@ -19,6 +19,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { UserEffects } from './state/user.effects';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { appReducer } from 'src/store/app.state';
+import { ProductEffect } from './products/state/products.effects';
 
 @NgModule({
   declarations: [

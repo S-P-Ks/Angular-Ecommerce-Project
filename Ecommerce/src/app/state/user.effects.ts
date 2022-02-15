@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { exhaustMap, map, switchMap, tap } from 'rxjs';
+import { exhaustMap, map, tap } from 'rxjs';
 import { App_State } from 'src/store/app.state';
 import { SET_LOADING_SPINNER } from 'src/store/Shared/shared.action';
 import { AServiceService } from '../auth/a-service.service';
@@ -33,9 +33,8 @@ export class UserEffects {
             console.log(data.token);
             localStorage.setItem('token', data.token);
             localStorage.setItem('user', JSON.stringify(data.u));
-            this.router.navigate(['/']);
             this.store.dispatch(SET_LOADING_SPINNER({ status: false }));
-            return LoadUser(data.u);
+            return LoginSuccess();
           })
         );
       })
@@ -53,12 +52,23 @@ export class UserEffects {
             // console.log(data + '***');
             localStorage.setItem('token', data.token);
             localStorage.setItem('user', JSON.stringify(data.user));
-            this.router.navigate(['/']);
             this.store.dispatch(SET_LOADING_SPINNER({ status: false }));
-            return LoadUser(data.user);
+            return LoginSuccess();
           })
         );
       })
     );
   });
+
+  loginRedirect$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(LoginSuccess),
+        map((action) =>
+          this.router.navigate(['/']).then(() => window.location.reload())
+        )
+      );
+    },
+    { dispatch: false }
+  );
 }
