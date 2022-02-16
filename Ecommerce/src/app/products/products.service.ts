@@ -12,7 +12,7 @@ export class ProductsService {
   }
 
   getSmartPhones() {
-    return this.http.get(' http://localhost:3000/Smartphones');
+    return this.http.get('http://localhost:3000/Smartphones');
   }
 
   getLaptops() {

@@ -20,10 +20,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading$ = this.store.select(getLoading);
-    console.log(this.store);
 
     this.u = ls.get('user');
-    console.log(this.u?.email);
     this.store.dispatch(LoadUser({ name: this.u?.name, email: this.u?.email }));
     // this.store.dispatch(LoginTest());
   }

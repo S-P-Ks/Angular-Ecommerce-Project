@@ -8,15 +8,10 @@ ls.config.encrypt = true;
 export const _authReducer = createReducer(
   intialState,
   on(LoadUser, (state, action: any) => {
-    console.log(state);
-    console.log({ ...action });
     let u = { ...state, name: action.name, email: action.email };
-    console.log(u);
     return u;
   }),
   on(LoginTest, (state) => {
-    console.log(state);
-
     return state;
   })
 );

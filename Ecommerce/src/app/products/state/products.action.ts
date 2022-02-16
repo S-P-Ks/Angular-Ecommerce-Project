@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { HeadPhone } from 'src/app/models/user';
+import { HeadPhone, Laptop, SmartPhone } from 'src/app/models/user';
 
 export const loadHeadphones = '[products page] load HeadPhones';
 export const loadSmartphones = '[products page] load SmartPhones';
@@ -17,8 +17,14 @@ export const LoadHeadPhones = createAction(
   loadHeadphones,
   props<{ HeadPhones: HeadPhone[] | any }>()
 );
-export const LoadSmartPhones = createAction(loadSmartphones);
-export const LoadLaptops = createAction(loadLaptops);
+export const LoadSmartPhones = createAction(
+  loadSmartphones,
+  props<{ SmartPhones: SmartPhone[] | any }>()
+);
+export const LoadLaptops = createAction(
+  loadLaptops,
+  props<{ Laptops: Laptop[] | any }>()
+);
 
 export const GetHeadPhones = createAction(getHeadPhone);
 export const GetSmartPhones = createAction(getSmartPhone);

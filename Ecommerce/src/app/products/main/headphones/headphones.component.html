@@ -1,1 +1,11 @@
-<p>headphones works!</p>
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 18rem" *ngFor="let h of headphones">
+      <div class="card-body">
+        <h5 class="card-title">{{ h.title }} - {{ h.author }}</h5>
+        <p class="card-text">Pice : {{ h.price }}</p>
+        <a href="#" class="btn btn-primary">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</div>

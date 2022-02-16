@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { HeadPhone } from 'src/app/models/user';
 import { GetHeadPhones } from '../../state/products.action';
-import { getHeadphones } from '../../state/products.selector';
+import {
+  getHeadphones,
+  Products_State_Name,
+} from '../../state/products.selector';
 import { Product } from '../../state/products.state';
 
 @Component({
@@ -12,11 +15,13 @@ import { Product } from '../../state/products.state';
 })
 export class HeadphonesComponent implements OnInit {
   constructor(private store: Store<Product>) {}
-  headphones!: HeadPhone[];
+  headphones!: any;
 
   ngOnInit(): void {
-    // this.headphones = this.store.select(getHeadphones);
-    this.store.dispatch(GetHeadPhones());
-    console.log('Called');
+    this.store.select(getHeadphones).subscribe((d) => (this.headphones = d));
+    if (this.headphones.length == 0) {
+      this.store.dispatch(GetHeadPhones());
+      console.log('Called');
+    }
   }
 }

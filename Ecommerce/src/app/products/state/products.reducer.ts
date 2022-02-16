@@ -1,13 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
-import { LoadHeadPhones } from './products.action';
+import {
+  LoadHeadPhones,
+  LoadLaptops,
+  LoadSmartPhones,
+} from './products.action';
 import { intialState } from './products.state';
 
 export const _productReducer = createReducer(
   intialState,
   on(LoadHeadPhones, (state, action: any) => {
-    console.log(action);
-    console.log(state);
-    return { ...state, HeadPhones: [...action.HeadPhones] };
+    let result = { ...state, HeadPhones: [...action.HeadPhones] };
+    return result;
+  }),
+  on(LoadLaptops, (state, action) => {
+    let result = { ...state, Laptops: [...action.Laptops] };
+    return result;
+  }),
+  on(LoadSmartPhones, (state, action) => {
+    let result = { ...state, SmartPhones: [...action.SmartPhones] };
+    return result;
   })
 );
 
