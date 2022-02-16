@@ -27,7 +27,6 @@ export class NavbarComponent implements OnInit {
   loggedIn!: boolean;
 
   @HostListener('window:resize', ['$event']) onResize(event: any) {
-    console.log(event.target.innerWidth);
     if (event.target.innerWidth > 800) {
       this.userColumn = true;
     } else {
@@ -37,23 +36,16 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedIn = this.loginService.loggedIn();
-    console.log(this.loggedIn);
 
     this.store
       .select('user')
-      .subscribe(
-        (d) => (
-          d.email == '' ? (this.u = false) : (this.u = true),
-          console.log(this.u)
-        )
-      );
+      .subscribe((d) => (d.email == '' ? (this.u = false) : (this.u = true)));
 
     if (window.innerWidth > 800) {
       this.userColumn = true;
     } else {
       this.userColumn = false;
     }
-    console.log(this.userColumn);
   }
 
   logout() {

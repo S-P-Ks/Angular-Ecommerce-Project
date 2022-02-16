@@ -5,7 +5,11 @@ import { ProductsService } from '../products.service';
 import {
   GetHeadPhones,
   GetHeadPhoneSuccess,
+  GetLaptops,
+  GetSmartPhones,
   LoadHeadPhones,
+  LoadLaptops,
+  LoadSmartPhones,
 } from './products.action';
 
 @Injectable()
@@ -19,12 +23,35 @@ export class ProductEffect {
     return this.actions$.pipe(
       ofType(GetHeadPhones),
       exhaustMap((action) => {
-        console.log(action);
         return this.ProductService.getHeadPhones().pipe(
-          tap((d) => console.log(d)),
           map((data) => {
-            console.log('Load');
             return LoadHeadPhones({ HeadPhones: data });
+          })
+        );
+      })
+    );
+  });
+
+  laptops$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(GetLaptops),
+      exhaustMap((action) => {
+        return this.ProductService.getLaptops().pipe(
+          map((data) => {
+            return LoadLaptops({ Laptops: data });
+          })
+        );
+      })
+    );
+  });
+
+  smartphones$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(GetSmartPhones),
+      exhaustMap((action) => {
+        return this.ProductService.getSmartPhones().pipe(
+          map((data) => {
+            return LoadSmartPhones({ SmartPhones: data });
           })
         );
       })
